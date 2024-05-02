@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#This script displays IP Along with Status code in a nice formated way
+#using awk
+
+
+while read -r line; do
+    echo "$line" | awk '{print $1, $9}'
+done < apache-access.log
