@@ -1,12 +1,6 @@
 #!/usr/bin/env bash
 #This script makes up a story using the info in /etc/passwd
 
-target="/etc/passwd"
-if [ -e "$target" ];then
-    while IFS=: read -r username pass uid gid gecos home shell; do
-        story="The user $username is part of the $gid gang, lives in $home and rides $shell. $uid place is protected by the passcode $pass, more info about the user here: $gecos"
-        echo "$story"
-    done < $target
-else
-    echo "file does not exist"
-fi
+while IFS=: read -r username pass uid gid gecos home shell; do
+    echo "The user $username is part of the $gid gang, lives in $home and rides $shell. $uid place is protected by the passcode $pass, more info about the user here: $gecos"
+done < "/etc/passwd"
