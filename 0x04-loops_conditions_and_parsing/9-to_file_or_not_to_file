@@ -1,1 +1,21 @@
 #!/usr/bin/env bash
+#This Script Gives information about a file
+
+
+file="school"
+file_info=$(file "$file")
+empty="$file: empty"
+if [ -e "$file" ]; then
+    echo "$file file exists"
+    if [ "$file_info" == "$empty" ]; then
+        echo "$file file is empty"
+        echo "$file is a regular file"
+    else
+        echo "$file file is not empty"
+    fi
+    if stat -c "%F" "$file" | grep -q "regular file";then
+        echo "$file is a regular file"
+    fi
+else
+    echo "school file does not exist"
+fi

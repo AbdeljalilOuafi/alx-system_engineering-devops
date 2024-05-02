@@ -6,5 +6,5 @@
 current_directory=$(ls)
 
 for file in $current_directory; do
-    echo "$file" | cut -d "-" -f2-
+    echo "$file" | cut -d "-" -f3-
 done
