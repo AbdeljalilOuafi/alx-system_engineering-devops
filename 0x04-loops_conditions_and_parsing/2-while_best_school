@@ -1,1 +1,12 @@
 #!/usr/bin/env bash
+#This script prints "Best School" 10 times using while loop
+
+((i = 1))
+
+while true; do
+    echo "Best School"
+    if ((i == 10)); then
+        break
+    fi
+    ((i++))
+done
