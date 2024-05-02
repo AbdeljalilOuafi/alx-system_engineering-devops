@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#This Script displays the content of the file /etc/passwd
+#in a user friendly output
+
+target="/etc/passwd"
+
+while IFS= read -r line; do
+    echo "$line" | cut -d ":" -f1,3,6
+done < $target
