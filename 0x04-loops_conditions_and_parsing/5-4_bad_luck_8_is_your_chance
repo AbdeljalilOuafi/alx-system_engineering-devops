@@ -1,1 +1,21 @@
 #!/usr/bin/env bash
+#The Script loops from 1 to 10 and:
+#displays bad luck for the 4th loop iteration
+#displays good luck for the 8th loop iteration
+#displays Best School for the other iterations
+
+((i=1))
+
+while true; do
+    if ((i == 4)); then
+        echo "bad luck"
+    elif ((i == 8)); then
+        echo "good luck"
+    else
+        echo "Best School"
+    fi
+    if ((i == 10)); then
+        break
+    fi
+    ((i++))
+done
