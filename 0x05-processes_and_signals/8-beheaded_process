@@ -2,4 +2,6 @@
 
 file_name="7-highlander"
 pid=$(pgrep -f "$file_name")
-kill -9 "$pid"
+if [ -n "$pid" ]; then
+    kill -9 "$pid"
+fi
