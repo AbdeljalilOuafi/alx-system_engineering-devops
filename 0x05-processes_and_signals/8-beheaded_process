@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+#This script kills a process using the SIGKILL (9) signal.
+#SIGKILL(9) Forcefully terminates a process without giving it a chance
+#to clean up resources.
 
 file_name="7-highlander"
 pid=$(pgrep -f "$file_name")
