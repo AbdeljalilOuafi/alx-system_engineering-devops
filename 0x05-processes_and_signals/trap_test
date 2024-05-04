@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-while true; do
-    trap 'echo "This process cannot be interrupted"' SIGINT
-done
