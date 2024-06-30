@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 #connect to a server using ssh
-
 user="ubuntu"
 ip="100.25.220.64"
 PK_path="~/.ssh/school"
