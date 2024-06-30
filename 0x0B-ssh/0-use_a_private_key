@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+user="ubuntu"
+ip="100.25.220.64"
+PK_path="~/.ssh/school"
+
+ssh -i $PK_path $user@$ip
+
+
