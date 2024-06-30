@@ -1,7 +1,4 @@
 #!/usr/bin/env bash
 #connect to a server using ssh
-user="ubuntu"
-ip="100.25.220.64"
-PK_path="~/.ssh/school"
 
-ssh -i "$PK_path" "$user"@"$ip"
+ssh -i ~/.ssh/school ubuntu@100.25.220.64
