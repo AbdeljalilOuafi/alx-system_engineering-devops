@@ -1,11 +1,9 @@
 #!/usr/bin/env bash
-#install nginx on a server and return a page
-#that contains the string Hello World!
-sudo apt-get -y update
-sudo apt-get -y upgrade
+# Install nginx web server:
+sudo apt -y update
+sudo apt -y upgrade
 sudo apt -y install nginx
 sudo chown -R ubuntu /var/www/
-echo "Hello World!" | sudo tee /var/www/html/index.
-
-#start nginx
+touch /var/www/html/index.html
+echo "Hello World!" > /var/www/html/index.html
 sudo service nginx start
