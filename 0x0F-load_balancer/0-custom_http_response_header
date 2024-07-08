@@ -1,26 +1,18 @@
 #!/usr/bin/env bash
+#Configure Nginx server to have a custom 404 page that contains the string 'Ceci n'est pas une page'
 
-# Update and upgrade system
-sudo apt -y update
-sudo apt -y upgrade
+sudo apt-get -y update
+sudo apt-get -y install nginx
 
-# Install Nginx
-sudo apt -y install nginx
+config="/etc/nginx/sites-available/default"
+sudo sh -c "echo 'Hello World!' > /var/www/html/index.nginx-debian.html"
 
-# Set permissions for /var/www/
-sudo chown -R ubuntu /var/www/
+sudo sed -i '/^}$/i \ \n\tlocation \/redirect_me {return 301 https:\/\/www.youtube.com\/watch?v=QH2-TGUlwu4;}' $config
 
-# Create and populate index.html in /var/www/html
-touch /var/www/html/index.html
-echo "Hello World!" > /var/www/html/index.html
+sudo sed -i '/^}$/i \ \n\tlocation @404 {return 404 "Ceci n'\''est pas une page\\n";}' $config
 
-# Create 404.html in /var/www/html for custom error page
-echo -e "Ceci n'est pas une page\n" > /var/www/html/404.html
+sudo sed -i 's/=404/@404/g' $config
 
-# Configure Nginx: add redirection and custom headers
-sudo sed -i "/^}$/i \ \n\tlocation /redirect_me {\n\t\treturn 301 https://www.github.com/AbdeljalilOuafi \n\t}\n" /etc/nginx/sites-enabled/default
-sudo sed -i "/^}$/i \ \n\terror_page 404 /404.html;\n\tlocation = /404.html {\n\t\troot /var/www/html;\n\t\tinternal;\n\t\t\n\t}\n" /etc/nginx/sites-enabled/default
-sudo sed -i "/^}$/i \ \n\tadd_header X-Served-By $HOSTNAME;\t\n" /etc/nginx/sites-enabled/default
+sudo sed -i "0,/location \/ {/s/location \/ {/&\n\t\tadd_header X-Served-By '$HOSTNAME';/" $config
 
-# Restart Nginx to apply changes
 sudo service nginx restart
