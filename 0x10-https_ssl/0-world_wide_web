@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+#print information about a website
 getdns() {
 dig $1 | awk -v subdomain="$2" '/ANSWER SECTION:/ { getline; print "The subdomain " subdomain " is a " $4 " record and points to " $5 ""}'
 }
