@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+# script forward 8080 requests to port 80.
+
+# enable IP forwarding permanently
+# if this is your first time i recommend testing
+# using this (temporary) -> sudo sysctl net.ipv4.ip_forward=1
+echo "net.ipv4.ip_forward=1" | sudo tee -a /etc/sysctl.conf
+
+# apply changes
+sudo sysctl -p
+
+#iptable rule for port forwarding
+sudo iptables -t nat -A PREROUTING -p tcp --dport 8080 -j REDIRECT --to-port 80
+
+#allow traffic through ufw
+sudo ufw allow 8080
+sudo ufw allow 80
+
+# to make the iptables rules persistent for reboots (optional)
+
+sudo apt-get -y install iptables-persistent
+
+sudo netfilter-persistent reload
+
+# restart ufw to apply changes
+
+sudo ufw disable
+sudo ufw enable
