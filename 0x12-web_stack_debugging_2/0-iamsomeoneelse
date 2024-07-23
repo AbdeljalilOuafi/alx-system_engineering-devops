@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#prints the user username
+
+sudo -u "$1" whoami
