@@ -6,7 +6,7 @@ if __name__ == "__main__":
 
     user_id = argv[1]
     # GET user info
-    user = requests.get("https://jsonplaceholder.typicode.com/users/{}".format(user_id)).json()
+    user = requests.get(f"https://jsonplaceholder.typicode.com/users/{user_id}").json()
 
     # GET user task info
     user_task = requests.get(f"https://jsonplaceholder.typicode.com/todos?userId={user_id}").json()
