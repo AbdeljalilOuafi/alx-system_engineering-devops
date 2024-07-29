@@ -1,21 +1,27 @@
 #!/usr/bin/python3
-"""0-gather_data_from_an_API Module"""
+"""
+Gather data from an API
+"""
+
+import requests
+import sys
+
 if __name__ == "__main__":
-    import requests
-    from sys import argv
 
-    user_id = argv[1]
-    # GET user info
-    user = requests.get(f"https://jsonplaceholder.typicode.com/users/{user_id}").json()
+    employee_id = int(sys.argv[1])
 
-    # GET user task info
-    user_task = requests.get(f"https://jsonplaceholder.typicode.com/todos?userId={user_id}").json()
+    base_url = 'https://jsonplaceholder.typicode.com'
+    user_data = requests.get(f'{base_url}/users/{employee_id}').json()
+    todos_data = requests.get(f'{base_url}/users/{employee_id}/todos').json()
 
-    # GET completed tasks of the user
-    done_tasks = requests.get(f"https://jsonplaceholder.typicode.com/todos?userId={user_id}&completed=true").json()
+    employee_name = user_data.get('name')
+    total_tasks = len(todos_data)
+    completed_tasks = [task for task in todos_data if task.get('completed')]
+    number_of_done_tasks = len(completed_tasks)
 
-    print("Employee {} is done with tasks({}/{}):".format(
-        user[0].get("name"), len(done_tasks), len(user_task)))
-
-    for task in user_task:
-        print("\t "+task.get("title"))
+    print(
+        f"Employee {employee_name} is done with tasks"
+        f"({number_of_done_tasks}/{total_tasks}):"
+    )
+    for task in completed_tasks:
+        print(f"\t {task.get('title')}")
