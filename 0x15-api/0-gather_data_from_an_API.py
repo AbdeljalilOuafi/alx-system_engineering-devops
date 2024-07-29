@@ -1,5 +1,15 @@
 #!/usr/bin/python3
-"""0-gather_data_from_an_API Module"""
+"""
+0-gather_data_from_an_API Module
+
+This module fetches and displays information about an employee's TODO list progress
+using a REST API. Given an employee ID, it retrieves the employee's name and their
+tasks, indicating how many tasks have been completed and listing the titles of
+completed tasks.
+
+Usage:
+    ./0-gather_data_from_an_API.py <employee_id>
+"""
 import requests
 from sys import argv
 
