@@ -15,7 +15,7 @@ if __name__ == "__main__":
     done_tasks = requests.get(f"https://jsonplaceholder.typicode.com/todos?userId={user_id}&completed=true").json()
 
     print("Employee {} is done with tasks({}/{}):".format(
-        user.get("name"), len(done_tasks), len(user_task)))
+        user[0].get("name"), len(done_tasks), len(user_task)))
 
     for task in user_task:
         print("\t "+task.get("title"))
