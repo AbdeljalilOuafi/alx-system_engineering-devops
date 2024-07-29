@@ -4,6 +4,7 @@ if __name__ == "__main__":
     import requests
     from sys import argv
 
+    user_id = argv[1]
     # GET user info
     user = requests.get("https://jsonplaceholder.typicode.com/users/{}".format(user_id)).json()
 
