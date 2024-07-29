@@ -42,4 +42,4 @@ if __name__ == "__main__":
         user_data["name"], len(done_tasks), len(task_data)))
 
     for task in task_data:
-        print("\t {}".format(task.get("title")))
+        print("\t "+task.get("title"))
