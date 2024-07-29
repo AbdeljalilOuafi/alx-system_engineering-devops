@@ -12,20 +12,23 @@ if __name__ == "__main__":
             exit()
 
     # GET user info
-
-    user = requests.get(f"https://jsonplaceholder.typicode.com/users/\
-        {user_id}")
+    user = requests.get("https://jsonplaceholder.typicode.com/users/{}".format(user_id))
 
     if user.status_code == 200:
         user_data = user.json()
+    else:
+        print("Error occured fetching user")
+        print("Status code: {}".format(user.status_code))
+        exit()
 
     # GET user task info
-
-    user_task = requests.get(f"https://jsonplaceholder.typicode\
-        .com/?userId={user_id}")
+    user_task = requests.get(f"https://jsonplaceholder.typicode.com/todos?userId={user_id}")
 
     if user_task.status_code == 200:
         task_data = user_task.json()
+    else:
+        print("Error occured fetching user task")
+        exit()
 
     done_tasks = []
 
