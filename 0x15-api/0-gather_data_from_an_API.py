@@ -30,13 +30,7 @@ if __name__ == "__main__":
         print("Error occured fetching user task")
         exit()
 
-    done_tasks = []
-
-    for task in task_data:
-        if task.get('completed'):
-            done_tasks.append(task)
-        else:
-            continue
+    done_tasks = requests.get(f"https://jsonplaceholder.typicode.com/todos?userId={user_id}&completed=true").json()
 
     print("Employee {} is done with tasks({}/{}):".format(
         user_data.get("name"), len(done_tasks), len(task_data)))
