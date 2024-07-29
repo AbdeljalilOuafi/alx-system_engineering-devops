@@ -39,7 +39,7 @@ if __name__ == "__main__":
             continue
 
     print("Employee {} is done with tasks({}/{}):".format(
-        user_data["name"], len(done_tasks), len(task_data)))
+        user_data.get("name"), len(done_tasks), len(task_data)))
 
     for task in task_data:
         print("\t "+task.get("title"))
