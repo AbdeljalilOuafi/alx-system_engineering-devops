@@ -10,8 +10,8 @@ completed tasks.
 Usage:
     ./0-gather_data_from_an_API.py <employee_id>
 """
-import requests
 from sys import argv
+import requests
 
 
 if len(argv) == 2:
