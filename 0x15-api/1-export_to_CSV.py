@@ -18,7 +18,7 @@ if __name__ == "__main__":
     completed_tasks = [task for task in todos_data if task.get('completed')]
     number_of_done_tasks = len(completed_tasks)
     filename = f"{employee_id}.csv"
-    userName = user_data.get("name")
+    userName = user_data.get("username")
 
     """Export into csv"""
     with open(filename, 'w') as f:
