@@ -1,18 +1,12 @@
 #!/usr/bin/python3
-"""
-this doc for module
-"""
+"""Returns the number of subscribers of a subreddit"""
 import requests
-
-headers = {"User-Agent": "MyCustomUserAgent/1.0"}
 
 
 def number_of_subscribers(subreddit):
-    """method doc"""
-    url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
-    response = requests.get(url, allow_redirects=False, headers=headers)
-    if response.status_code == 200:
-        data = response.json()
-        return data["data"]["subscribers"]
-    else:
+    url = f"https://www.reddit.com/r/{subreddit}/about.json"
+    headers = {'User-Agent': 'Mozilla/5.0 (Linux x86_64) Edge109.0'}
+    response = requests.get(url, headers=headers, allow_redirects=False)
+    if response.status_code != 200:
         return 0
+    return response.json()['data']['subscribers']
