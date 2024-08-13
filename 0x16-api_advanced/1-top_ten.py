@@ -2,6 +2,7 @@
 """Top ten subreddit posts API Call"""
 import requests
 
+
 def top_ten(subreddit):
     """Fetch top 10 posts from a subreddit"""
     url = "https://www.reddit.com/r/{}/hot.json?limit=9".format(subreddit)
