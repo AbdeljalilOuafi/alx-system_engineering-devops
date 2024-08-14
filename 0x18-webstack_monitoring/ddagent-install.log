@@ -1,0 +1,42 @@
+[34m
+* Datadog Agent 7 install script v1.33.0
+[0m
+[34m
+* Installing apt-transport-https, curl and gnupg
+[0m
+Hit:1 http://archive.ubuntu.com/ubuntu jammy InRelease
+Get:2 http://archive.ubuntu.com/ubuntu jammy-updates InRelease [128 kB]
+Get:3 http://security.ubuntu.com/ubuntu jammy-security InRelease [129 kB]
+Hit:4 http://apt.puppet.com bullseye InRelease
+Hit:5 https://deb.nodesource.com/node_20.x nodistro InRelease
+Get:6 http://archive.ubuntu.com/ubuntu jammy-backports InRelease [127 kB]
+Get:7 http://security.ubuntu.com/ubuntu jammy-security/main amd64 Packages [1726 kB]
+Get:8 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 Packages [1946 kB]
+Get:9 http://security.ubuntu.com/ubuntu jammy-security/main Translation-en [285 kB]
+Get:10 http://security.ubuntu.com/ubuntu jammy-security/main amd64 c-n-f Metadata [13.1 kB]
+Get:11 http://security.ubuntu.com/ubuntu jammy-security/restricted amd64 Packages [2247 kB]
+Get:12 http://security.ubuntu.com/ubuntu jammy-security/restricted Translation-en [387 kB]
+Get:13 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 Packages [889 kB]
+Get:14 http://archive.ubuntu.com/ubuntu jammy-updates/main Translation-en [343 kB]
+Get:15 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 c-n-f Metadata [17.8 kB]
+Get:16 http://security.ubuntu.com/ubuntu jammy-security/universe Translation-en [174 kB]
+Get:17 http://archive.ubuntu.com/ubuntu jammy-updates/restricted amd64 Packages [2322 kB]
+Get:18 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 c-n-f Metadata [19.0 kB]
+Get:19 http://archive.ubuntu.com/ubuntu jammy-updates/restricted Translation-en [400 kB]
+Get:20 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 Packages [1111 kB]
+Get:21 http://archive.ubuntu.com/ubuntu jammy-updates/universe Translation-en [259 kB]
+Get:22 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 c-n-f Metadata [25.9 kB]
+Get:23 http://archive.ubuntu.com/ubuntu jammy-updates/multiverse amd64 Packages [43.3 kB]
+Get:24 http://archive.ubuntu.com/ubuntu jammy-backports/universe amd64 Packages [28.8 kB]
+Get:25 http://archive.ubuntu.com/ubuntu jammy-backports/universe Translation-en [16.5 kB]
+Get:26 http://archive.ubuntu.com/ubuntu jammy-backports/universe amd64 c-n-f Metadata [672 B]
+Traceback (most recent call last):
+  File "/usr/lib/cnf-update-db", line 9, in <module>
+    from CommandNotFound.db.creator import DbCreator
+  File "/usr/lib/python3/dist-packages/CommandNotFound/db/creator.py", line 7, in <module>
+    import sqlite3
+  File "/usr/lib/python3.10/sqlite3/__init__.py", line 57, in <module>
+    from sqlite3.dbapi2 import *
+  File "/usr/lib/python3.10/sqlite3/dbapi2.py", line 27, in <module>
+    from _sqlite3 import *
+KeyboardInterrupt
