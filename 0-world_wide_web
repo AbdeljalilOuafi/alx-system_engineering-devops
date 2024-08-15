@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# getdns() {
+#     dig $1
+# }
+
+
+for subdomain in "www" "lb-01" "web-01" "web-02"; do
+    echo $subdomain
+done
